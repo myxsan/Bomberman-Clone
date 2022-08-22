@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 102928044}
   - component: {fileID: 102928043}
   - component: {fileID: 102928042}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Indestructibles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2560,6 +2560,12 @@ MonoBehaviour:
   inputBomb: 32
   bombFuseTime: 3
   bombsAmount: 343
+  explosionPrefab: {fileID: -7442901739124411592, guid: 74a4f2a4801373a43a2e499ac3fd52f9, type: 3}
+  explosionLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  explosionDuration: 1
+  explosionRadius: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2863,7 +2869,7 @@ GameObject:
   - component: {fileID: 1777069892}
   - component: {fileID: 1777069891}
   - component: {fileID: 1777069890}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Destructibles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3820,7 +3826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1966655422}
   - component: {fileID: 1966655421}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
