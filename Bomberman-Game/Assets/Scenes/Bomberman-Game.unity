@@ -2460,6 +2460,7 @@ GameObject:
   - component: {fileID: 471783514}
   - component: {fileID: 471783513}
   - component: {fileID: 471783516}
+  - component: {fileID: 471783517}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2543,6 +2544,22 @@ MonoBehaviour:
   spriteRendererDown: {fileID: 942681836}
   spriteRendererLeft: {fileID: 1751231164}
   spriteRendererRight: {fileID: 31595013}
+--- !u!114 &471783517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471783512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f1313a9a90aa54a87d11131646f84e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 2026000358949354685, guid: c58dca246d3802f49ba2431a5f9567c0, type: 3}
+  inputBomb: 32
+  bombFuseTime: 3
+  bombsAmount: 343
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,7 +2869,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1777069889
 Transform:
   m_ObjectHideFlags: 0
