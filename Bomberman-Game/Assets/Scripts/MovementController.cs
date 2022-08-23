@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MovementController : MonoBehaviour
@@ -16,6 +17,7 @@ public class MovementController : MonoBehaviour
     public AnimatedSpriteRenderer spriteRendererDown;
     public AnimatedSpriteRenderer spriteRendererLeft;
     public AnimatedSpriteRenderer spriteRendererRight;
+    public AnimatedSpriteRenderer spriteRendererDeath;
 
     private AnimatedSpriteRenderer currentSpriteRenderer;
     
@@ -25,6 +27,7 @@ public class MovementController : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         currentSpriteRenderer = spriteRendererDown;
+        spriteRendererDeath.enabled = false;
     }
 
     private void Update() 
@@ -61,5 +64,31 @@ public class MovementController : MonoBehaviour
         spriteRendererRight.enabled = spriteRenderer == spriteRendererRight;
 
         currentSpriteRenderer.idle = direction == Vector2.zero;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Explosion")){
+            DeathSequence();
+        }
+    }
+
+    private void DeathSequence()
+    {
+        enabled = false;
+        GetComponent<BombController>().enabled = false;
+
+        spriteRendererUp.enabled = false;
+        spriteRendererDown.enabled = false;
+        spriteRendererLeft.enabled = false;
+        spriteRendererRight.enabled = false;
+
+        spriteRendererDeath.enabled = true;
+
+        Invoke(nameof(OnDeathSequenceEnd), 2.5f);
+    }
+
+    private void OnDeathSequenceEnd()
+    {
+        gameObject.SetActive(false);
     }
 }
