@@ -4,6 +4,7 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     public new Rigidbody2D rigidbody {get; private set;}
+    public ScoreManager scoreManager;
 
     [Header("Movement Values")]
     public KeyCode inputUp = KeyCode.W;
@@ -20,8 +21,9 @@ public class MovementController : MonoBehaviour
     public AnimatedSpriteRenderer spriteRendererDeath;
 
     private AnimatedSpriteRenderer currentSpriteRenderer;
-    
     private Vector2 direction = Vector2.down;
+
+    [HideInInspector] public bool isDead = false;
 
     private void Awake()
     {
@@ -74,7 +76,7 @@ public class MovementController : MonoBehaviour
 
     private void DeathSequence()
     {
-        enabled = false;
+        scoreManager.CheckDeadPlayer(this.gameObject);
         GetComponent<BombController>().enabled = false;
 
         spriteRendererUp.enabled = false;
@@ -85,6 +87,7 @@ public class MovementController : MonoBehaviour
         spriteRendererDeath.enabled = true;
 
         Invoke(nameof(OnDeathSequenceEnd), 2.5f);
+        enabled = false;
     }
 
     private void OnDeathSequenceEnd()
